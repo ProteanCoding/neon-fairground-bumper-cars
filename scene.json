@@ -1,0 +1,33 @@
+{
+  "ecs7": true,
+  "runtimeVersion": "7",
+  "display": {
+    "title": "Bumper Cars",
+    "description": "",
+    "navmapThumbnail": ""
+  },
+  "owner": "0x55651e399ca32d7e2f44034fb62996937af0bc49",
+  "contact": {
+    "name": "www.proteo.site"
+  },
+  "rating": "E",
+  "main": "bin/index.js",
+  "tags": [ "game" ],
+  "scene": {
+    "parcels": [
+      "0,0","1,0","2,0","3,0",
+      "0,1","1,1","2,1","3,1",
+      "0,2","1,2","2,2","3,2",
+      "0,3","1,3","2,3","3,3"
+    ],
+    "base": "0,0"
+  },
+  "spawnPoints": [
+    {
+      "name": "spawn1",
+      "default": true,
+      "position": { "x": [ 12.5, 12.5 ], "y": [ 1, 1 ], "z": [ 14.8, 14.8 ] },
+      "cameraTarget": { "x": 5, "y": 4, "z": 48 }
+    }
+  ]
+}

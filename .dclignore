@@ -1,0 +1,7 @@
+.*
+*.json
+*.map
+
+assets/
+node_modules/
+src/

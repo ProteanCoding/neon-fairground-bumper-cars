@@ -1,0 +1,24 @@
+{
+  "name": "inner-avatar-trainer",
+  "scripts": {
+    "cmd": "sdk-commands",
+    "help": "sdk-commands || sdk-commands init --help && sdk-commands build --help && sdk-commands start --help && sdk-commands deploy --help",
+    "update-online": "npm i @dcl/js-runtime@latest --offline false && npm update --offline false",
+    "build": "sdk-commands build",
+    "build:prod": "sdk-commands build -p",
+    "deploy": "sdk-commands deploy --target peer.decentral.io",
+    "deploy:prod": "sdk-commands deploy --skip-build --target peer.decentral.io",
+    "deploy:testing": "sdk-commands deploy --skip-build --target peer-testing.decentraland.org",
+    "deploy:test-world": "sdk-commands deploy --skip-build --target-content worlds-content-server.decentraland.zone",
+    "start": "sdk-commands start --port ${PORT:=8000}",
+    "start:prod": "sdk-commands start -w --skip-build"
+  },
+  "devDependencies": {
+    "@dcl/js-runtime": "7.5.0",
+    "@dcl/sdk": "^7.5.0"
+  },
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=6.0.0"
+  }
+}
