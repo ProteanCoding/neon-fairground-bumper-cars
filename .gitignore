@@ -9,3 +9,7 @@
 !/bin/*.js
 !/models/**
 !/src/**
+
+# Fixes
+!node_modules/@dcl/ecs/dist/engine/input.js
+!node_modules/@dcl/sdk/src/players/index.ts
