@@ -1,0 +1,11 @@
+# Hide all files, and show all folders and the .* files
+*
+!/**/
+!/.*
+
+# Show all files in project folders
+!/*
+!/.github/**
+!/bin/*.js
+!/models/**
+!/src/**
