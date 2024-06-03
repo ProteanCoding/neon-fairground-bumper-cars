@@ -6,7 +6,7 @@ import { HideUI, SimplePopup } from './UI'
 import { C4, CreateFrom, NewEntity, PlaceGltf, QEuler, V3 } from './utils'
 
 const sceneWidth = 64, padding = 2, taxiSpawnPosition = V3(10, 0, 10)
-var { myUserId, carSpawned, buttonIsPressed, myTaxi, ignition, inertia, rotateRight, rotateLeft, myPreviousPosition, taxiPositions, eiffelTower, bumps1, bumps2, victory } = {
+var { myUserId, carSpawned, buttonIsPressed, myTaxi, ignition, inertia, rotateRight, rotateLeft, myPreviousPosition, taxiPositions, eiffelTower } = {
   myUserId: '',
   carSpawned: false,
   buttonIsPressed: [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
@@ -18,9 +18,6 @@ var { myUserId, carSpawned, buttonIsPressed, myTaxi, ignition, inertia, rotateRi
   myPreviousPosition: taxiSpawnPosition,
   taxiPositions: new Map<Entity, Vector3>(),
   eiffelTower: engine.RootEntity,
-  bumps1: 0,
-  bumps2: '',
-  victory: false,
 }
 
 export function main() {
@@ -259,24 +256,30 @@ function bounceTaxis(myTaxiTransform: TransformType) {
       if ((currentDistance < bounceDistance) && (previousDistance > currentDistance)) {
         inertia = Vector3.subtract(currentPosition, previousPosition)
 
-        if (!victory) {
-          ++bumps1
-
-          if (bumps2 === '') {
-            bumps2 = userId
-
-          } else if (bumps2 != userId) {
-            bumps2 = 'score'
-          }
-
-          if ((bumps1 >= 20) && (bumps2 === 'score')) {
-            victory = true
-            SimplePopup('You won for the Game Jam !\n("2" Close)')
-          }
-        }
+        validateVictory(userId)
       }
     }
 
     taxiPositions.set(taxi, currentPosition)
+  }
+}
+
+var bumps1 = 0, bumps2 = '', victory = false
+function validateVictory(userId: string) {
+  if (!victory) {
+    ++bumps1
+
+    if (bumps2 === '') {
+      bumps2 = userId
+
+    } else if (bumps2 != userId) {
+      bumps2 = 'score'
+    }
+
+    if ((bumps1 >= 20) && (bumps2 === 'score')) {
+      victory = true
+
+      SimplePopup('You won for the Game Jam !\n("2" Close)')
+    }
   }
 }
