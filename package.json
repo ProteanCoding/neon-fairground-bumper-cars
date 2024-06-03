@@ -15,7 +15,11 @@
   },
   "devDependencies": {
     "@dcl/js-runtime": "7.5.0",
-    "@dcl/sdk": "^7.5.0"
+    "@dcl/sdk": "7.5.0"
+  },
+  "overrides": {
+    "@dcl/js-runtime": "$@dcl/js-runtime",
+    "@dcl/sdk": "$@dcl/sdk"
   },
   "engines": {
     "node": ">=16.0.0",
